@@ -1,25 +1,25 @@
-import React from 'react';
-import App from 'next/app';
-import Head from 'next/head';
-import { AppProvider } from '@shopify/polaris';
-import { Provider } from '@shopify/app-bridge-react';
-import Cookies from "js-cookie";
-import '@shopify/polaris/styles.css';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
-import translations from '@shopify/polaris/locales/en.json';
+import React from 'react'
+import App from 'next/app'
+import Head from 'next/head'
+import { AppProvider } from '@shopify/polaris'
+import { Provider } from '@shopify/app-bridge-react'
+import Cookies from 'js-cookie'
+import '@shopify/polaris/styles.css'
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from 'react-apollo'
+import translations from '@shopify/polaris/locales/en.json'
 
 const client = new ApolloClient({
   fetchOptions: {
-    credentials: 'include'
+    credentials: 'include',
   },
-});
+})
 
 class MyApp extends App {
   render() {
-    const { Component, pageProps } = this.props;
-    const apiKey =  JSON.stringify(process.env.SHOPIFY_API_KEY);
-    const config = { apiKey, shopOrigin: Cookies.get("shopOrigin"), forceRedirect: true };
+    const { Component, pageProps } = this.props
+    const apiKey = process.env.SHOPIFY_API_KEY
+    const config = { apiKey, shopOrigin: Cookies.get('shopOrigin'), forceRedirect: true }
 
     return (
       <React.Fragment>
@@ -35,8 +35,8 @@ class MyApp extends App {
           </AppProvider>
         </Provider>
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default MyApp;
+export default MyApp

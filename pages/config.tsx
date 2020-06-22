@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Button,
   Card,
@@ -10,18 +10,18 @@ import {
   Stack,
   TextField,
   TextStyle,
-} from '@shopify/polaris';
+} from '@shopify/polaris'
 
 class Config extends React.Component {
   state = {
     discount: '10%',
     enabled: false,
-  };
+  }
 
   render() {
-    const { discount, enabled } = this.state;
-    const contentStatus = enabled ? 'Disable' : 'Enable';
-    const textStatus = enabled ? 'enabled' : 'disabled';
+    const { discount, enabled } = this.state
+    const contentStatus = enabled ? 'Disable' : 'Enable'
+    const textStatus = enabled ? 'enabled' : 'disabled'
 
     return (
       <Page>
@@ -59,31 +59,29 @@ class Config extends React.Component {
               }}
               enabled={enabled}
             >
-              This setting is{' '}
-              <TextStyle variation="strong">{textStatus}</TextStyle>.
+              This setting is <TextStyle variation="strong">{textStatus}</TextStyle>.
             </SettingToggle>
           </Layout.AnnotatedSection>
         </Layout>
       </Page>
-    );
+    )
   }
 
   handleSubmit = () => {
     this.setState({
       discount: this.state.discount,
-    });
-    console.log('submission', this.state);
-  };
+    })
+  }
 
   handleChange = (field) => {
-    return (value) => this.setState({ [field]: value });
-  };
+    return (value) => this.setState({ [field]: value })
+  }
 
   handleToggle = () => {
     this.setState((enabled) => {
-      return { enabled: !enabled };
-    });
-  };
+      return { enabled: !enabled }
+    })
+  }
 }
 
-export default Config;
+export default Config
